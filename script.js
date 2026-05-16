@@ -77,3 +77,19 @@ resetar.addEventListener("click", function desativarInteratividade() {
     addEventListener();
   }
 });
+
+function moverParaCima() {
+  let posicaoAtual = parseInt(window.getComputedStyle(red).top) || 0;
+  
+  let novaPosicao = posicaoAtual - 10; 
+  
+  red.style.top = novaPosicao + "px";
+}
+
+acelerar.addEventListener("click", moverParaCima);
+
+document.addEventListener("keydown", function(evento) {
+  if (evento.key === "ArrowUp") {
+    moverParaCima();
+  }
+});
