@@ -75,64 +75,133 @@ resetar.addEventListener("click", function Resetar() {
 
 //tecla acelerar clicada = carro vermelho vai pra cima
 function AcelerarCarroVermelho() {
-  let parado = parseInt(window.getComputedStyle(red).top) || 0;
-  let acelerado = parado - 10;
-  red.style.top = acelerado + "px";
-  red.style.height = acelerado + "px";
+  let vermelhoParado = parseInt(window.getComputedStyle(red).top) || 0;
+  let vermelhoAcelerado = vermelhoParado - 10;
+
+  let alturaVermelha =
+    parseInt(window.getComputedStyle(red).height) || 50;
+
+  red.style.top = vermelhoAcelerado + "px";
+  red.style.height = alturaVermelha - 2 + "px";
 }
 
 //botão da setinha pra cima apertado = carro vermelho vai pra cima
-acelerar.addEventListener("click", AcelerarCarroVermelho);
+acelerar.addEventListener("click", function () {
+  if (
+    getComputedStyle(document.body).backgroundColor ===
+    "rgb(139, 0, 0)"
+  ) {
+    AcelerarCarroVermelho();
+  }
+});
+
+// carro vermelho só funciona com fundo vermelho
 document.addEventListener("keydown", function (evento) {
-  if (evento.key === "ArrowUp") {
+  if (
+    evento.key === "ArrowUp" &&
+    getComputedStyle(document.body).backgroundColor ===
+      "rgb(139, 0, 0)"
+  ) {
     AcelerarCarroVermelho();
   }
 });
 
 //tecla desacelerar clicada = carro vermelho vai pra baixo
 function DesacelerarCarroVermelho() {
-  let parado = parseInt(window.getComputedStyle(acelerar).top) || 0;
-  let acelerado = parado + 10;
-  red.style.top = acelerado + "px";
-  red.style.height = acelerado + "px";
+  let vermelhoParado = parseInt(window.getComputedStyle(red).top) || 0;
+  let vermelhoAcelerado = vermelhoParado + 10;
+
+  let alturaVermelha =
+    parseInt(window.getComputedStyle(red).height) || 50;
+
+  red.style.top = vermelhoAcelerado + "px";
+  red.style.height = alturaVermelha + 2 + "px";
 }
 
 //botão da setinha pra baixo apertado = carro vermelho vai pra baixo
-desacelerar.addEventListener("click", DesacelerarCarroVermelho);
+desacelerar.addEventListener("click", function () {
+  if (
+    getComputedStyle(document.body).backgroundColor ===
+    "rgb(139, 0, 0)"
+  ) {
+    DesacelerarCarroVermelho();
+  }
+});
+
+// carro vermelho só funciona com fundo vermelho
 document.addEventListener("keydown", function (evento) {
-  if (evento.key === "ArrowDown") {
+  if (
+    evento.key === "ArrowDown" &&
+    getComputedStyle(document.body).backgroundColor ===
+      "rgb(139, 0, 0)"
+  ) {
     DesacelerarCarroVermelho();
   }
 });
 
 //tecla acelerar clicada = carro branco vai pra cima
-function AcelerarCarroVermelho() {
-  let parado = parseInt(window.getComputedStyle(white).top) || 0;
-  let acelerado = parado - 10;
-  white.style.top = acelerado + "px";
-  white.style.height = acelerado + "px";
+function AcelerarCarroBranco() {
+  let brancoParado = parseInt(window.getComputedStyle(white).top) || 0;
+  let brancoAcelerado = brancoParado - 10;
+
+  let alturaBranca =
+    parseInt(window.getComputedStyle(white).height) || 50;
+
+  white.style.top = brancoAcelerado + "px";
+  white.style.height = alturaBranca - 2 + "px";
 }
 
 //botão da setinha pra cima apertado = carro branco vai pra cima
-acelerar.addEventListener("click", AcelerarCarroVermelho);
+acelerar.addEventListener("click", function () {
+  if (
+    getComputedStyle(document.body).backgroundColor ===
+    "rgb(255, 255, 255)"
+  ) {
+    AcelerarCarroBranco();
+  }
+});
+
+// carro branco só funciona com fundo branco
 document.addEventListener("keydown", function (evento) {
-  if (evento.key === "ArrowUp") {
-    AcelerarCarroVermelho();
+  if (
+    evento.key === "ArrowUp" &&
+    getComputedStyle(document.body).backgroundColor ===
+      "rgb(255, 255, 255)"
+  ) {
+    AcelerarCarroBranco();
   }
 });
 
 //tecla desacelerar clicada = carro branco vai pra baixo
-function DesacelerarCarroVermelho() {
-  let parado = parseInt(window.getComputedStyle(acelerar).top) || 0;
-  let acelerado = parado + 10;
-  white.style.top = acelerado + "px";
-  white.style.height = acelerado + "px";
+function DesacelerarCarroBranco() {
+  let brancoParado = parseInt(window.getComputedStyle(white).top) || 0;
+  let brancoAcelerado = brancoParado + 10;
+
+  let alturaBranca =
+    parseInt(window.getComputedStyle(white).height) || 50;
+
+  white.style.top = brancoAcelerado + "px";
+  white.style.height = alturaBranca + 2 + "px";
 }
 
 //botão da setinha pra baixo apertado = carro branco vai pra baixo
-desacelerar.addEventListener("click", DesacelerarCarroVermelho);
-document.addEventListener("keydown", function (evento) {
-  if (evento.key === "ArrowDown") {
-    DesacelerarCarroVermelho();
+desacelerar.addEventListener("click", function () {
+  if (
+    getComputedStyle(document.body).backgroundColor ===
+    "rgb(255, 255, 255)"
+  ) {
+    DesacelerarCarroBranco();
   }
 });
+
+// carro branco só funciona com fundo branco
+document.addEventListener("keydown", function (evento) {
+  if (
+    evento.key === "ArrowDown" &&
+    getComputedStyle(document.body).backgroundColor ===
+      "rgb(255, 255, 255)"
+  ) {
+    DesacelerarCarroBranco();
+  }
+});
+
